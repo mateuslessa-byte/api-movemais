@@ -1,19 +1,26 @@
 {
   "name": "api-movemais",
   "version": "1.0.0",
-  "description": "Projeto da Turma 105116",
-  "main": "index.js",
+  "description": "API Express do Projeto da Turma 105116",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mateuslessa-byte/api-movemais.git"
   },
   "keywords": [],
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/mateuslessa-byte/api-movemais/issues"
   },
-  "homepage": "https://github.com/mateuslessa-byte/api-movemais#readme"
+  "homepage": "https://github.com/mateuslessa-byte/api-movemais#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
