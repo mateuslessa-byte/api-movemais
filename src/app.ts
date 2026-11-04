@@ -50,7 +50,7 @@ app.post("/livros", (req: Request, res: Response) => {
     const {id, title, author, ano_pub} = req.body;
 
     const novoLivro: Livro = ({
-            id: Number(id)
+            id: Number(id),
             title,
             author,
             ano_pub: Number(ano_pub)
@@ -60,15 +60,29 @@ app.post("/livros", (req: Request, res: Response) => {
 });
 
 //REQUISIÇÃO PUT (ATUALIZAR DADOS)
-app.put("/livros/:id", (req, res) => {
+app.put("/livros/:id", (req: Request, res: Response) => {
     const index = buscaLivro(req.params.id);
 
-    if (index === -1) {
-        return res.status(404).json({ mensagem: "Livro não encontrado." });
-    }
+        if(index === -1){
+            res.status(404).json({mensagem: "Livro não encontrado!"});
+            return;
+        }
 
-    livros[index].title = req.body.title;
-    res.status(200).json(livros);
+    const {title, author, ano_pub} = req.body;
+
+    livro[index] = {
+        ...livros[index],
+            title,
+            author,
+            ano_pub
+
+
+    };
+    res.status(200).json ({
+        mensagem: "livro atualizado com sucesso!",
+        livro: livros[index]
+    });
+
 });
 
 export default app;
