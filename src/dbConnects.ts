@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-async function conectaNaDatabase():promise<typeof mongoose.connection>{
-    const dbURI = Process.env.DB_CONNECTION_STRING;
+async function conectaNaDatabase(): Promise<typeof mongoose.connection>{
+    const dbURI = process.env.DB_CONNECTION_STRING;
 
     if(!dbURI){
         throw new  Error(
